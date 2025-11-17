@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Black Orchard Labs - Building Liberation Technology">
+    <meta name="author" content="Black Orchard Labs">
+    <title>Black Orchard Labs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @keyframes breathe {
+            0%, 100% {
+                opacity: 0.6;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.02);
+            }
+        }
+
+        @keyframes glow-pulse {
+            0%, 100% {
+                filter: drop-shadow(0 0 8px rgba(255, 0, 153, 0.4));
+            }
+            50% {
+                filter: drop-shadow(0 0 20px rgba(255, 0, 153, 0.8));
+            }
+        }
+
+        @keyframes line-glow {
+            0%, 100% {
+                opacity: 0.7;
+                box-shadow: 0 0 4px currentColor;
+            }
+            50% {
+                opacity: 1;
+                box-shadow: 0 0 12px currentColor;
+            }
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(180deg, #0a0e27 0%, #050810 100%);
+            color: #e0e6f5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Corner accent lines - top left (cyan) */
+        .corner-accent-tl {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            width: 200px;
+            height: 80px;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .corner-accent-tl::before,
+        .corner-accent-tl::after {
+            content: '';
+            position: absolute;
+            background: #00FFFF;
+            animation: line-glow 4s ease-in-out infinite;
+        }
+
+        .corner-accent-tl::before {
+            width: 100%;
+            height: 2px;
+            top: 0;
+            left: 0;
+        }
+
+        .corner-accent-tl::after {
+            width: 100%;
+            height: 2px;
+            top: 12px;
+            left: 0;
+        }
+
+        /* Additional lines for top-left */
+        .corner-accent-tl .line3,
+        .corner-accent-tl .line4 {
+            position: absolute;
+            background: #00FFFF;
+            width: 100%;
+            height: 2px;
+            left: 0;
+            animation: line-glow 4s ease-in-out infinite;
+        }
+
+        .corner-accent-tl .line3 { top: 24px; }
+        .corner-accent-tl .line4 { top: 36px; }
+
+        /* Corner accent lines - top right (magenta) */
+        .corner-accent-tr {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 200px;
+            height: 80px;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .corner-accent-tr::before,
+        .corner-accent-tr::after {
+            content: '';
+            position: absolute;
+            background: #FF0099;
+            animation: line-glow 4.5s ease-in-out infinite;
+        }
+
+        .corner-accent-tr::before {
+            width: 100%;
+            height: 2px;
+            top: 0;
+            right: 0;
+        }
+
+        .corner-accent-tr::after {
+            width: 100%;
+            height: 2px;
+            top: 12px;
+            right: 0;
+        }
+
+        .corner-accent-tr .line3,
+        .corner-accent-tr .line4 {
+            position: absolute;
+            background: #FF0099;
+            width: 100%;
+            height: 2px;
+            right: 0;
+            animation: line-glow 4.5s ease-in-out infinite;
+        }
+
+        .corner-accent-tr .line3 { top: 24px; }
+        .corner-accent-tr .line4 { top: 36px; }
+
+        /* Corner accent lines - bottom left (magenta) */
+        .corner-accent-bl {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 150px;
+            height: 60px;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .corner-accent-bl::before,
+        .corner-accent-bl::after {
+            content: '';
+            position: absolute;
+            background: #FF0099;
+            animation: line-glow 5s ease-in-out infinite;
+        }
+
+        .corner-accent-bl::before {
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+        }
+
+        .corner-accent-bl::after {
+            width: 100%;
+            height: 2px;
+            bottom: 12px;
+            left: 0;
+        }
+
+        .corner-accent-bl .line3 {
+            position: absolute;
+            background: #FF0099;
+            width: 100%;
+            height: 2px;
+            left: 0;
+            bottom: 24px;
+            animation: line-glow 5s ease-in-out infinite;
+        }
+
+        /* Corner accent lines - bottom right (cyan) */
+        .corner-accent-br {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 150px;
+            height: 60px;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .corner-accent-br::before,
+        .corner-accent-br::after {
+            content: '';
+            position: absolute;
+            background: #00FFFF;
+            animation: line-glow 5.5s ease-in-out infinite;
+        }
+
+        .corner-accent-br::before {
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            right: 0;
+        }
+
+        .corner-accent-br::after {
+            width: 100%;
+            height: 2px;
+            bottom: 12px;
+            right: 0;
+        }
+
+        .corner-accent-br .line3 {
+            position: absolute;
+            background: #00FFFF;
+            width: 100%;
+            height: 2px;
+            right: 0;
+            bottom: 24px;
+            animation: line-glow 5.5s ease-in-out infinite;
+        }
+
+        .container {
+            text-align: center;
+            padding: 2rem;
+            max-width: 800px;
+            animation: breathe 6s ease-in-out infinite;
+        }
+
+        .logo-container {
+            margin-bottom: 2rem;
+        }
+
+        .logo {
+            width: 200px;
+            height: 200px;
+            animation: glow-pulse 5s ease-in-out infinite;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #FF0099 0%, #FF00DD 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+
+        .tagline {
+            font-size: 1.25rem;
+            color: #00FFFF;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            color: #a8b8d8;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .kofi-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.75rem 2rem;
+            background: linear-gradient(135deg, #FF0099 0%, #FF00DD 100%);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 0, 153, 0.3);
+        }
+
+        .kofi-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255, 0, 153, 0.5);
+            background: linear-gradient(135deg, #FF00DD 0%, #FF0099 100%);
+        }
+
+        .kofi-link:active {
+            transform: translateY(0);
+        }
+
+        footer {
+            position: fixed;
+            bottom: 80px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: #5a6a8a;
+            font-size: 0.875rem;
+            padding: 1rem;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .corner-accent-tl,
+            .corner-accent-tr,
+            .corner-accent-bl,
+            .corner-accent-br {
+                width: 100px;
+                height: 50px;
+            }
+
+            .corner-accent-tl,
+            .corner-accent-tr,
+            .corner-accent-bl,
+            .corner-accent-br {
+                top: 10px;
+                left: 10px;
+                right: 10px;
+                bottom: 10px;
+            }
+
+            .corner-accent-tl .line4,
+            .corner-accent-tr .line4 {
+                display: none;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+
+            .description {
+                font-size: 1rem;
+            }
+
+            .logo {
+                width: 150px;
+                height: 150px;
+            }
+
+            footer {
+                bottom: 60px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .tagline {
+                font-size: 0.9rem;
+            }
+
+            .logo {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Corner accent lines -->
+    <div class="corner-accent-tl">
+        <div class="line3"></div>
+        <div class="line4"></div>
+    </div>
+    <div class="corner-accent-tr">
+        <div class="line3"></div>
+        <div class="line4"></div>
+    </div>
+    <div class="corner-accent-bl">
+        <div class="line3"></div>
+    </div>
+    <div class="corner-accent-br">
+        <div class="line3"></div>
+    </div>
+
+    <!-- Main content -->
+    <div class="container">
+        <div class="logo-container">
+            <img src="black_orchard_logo.png" alt="Black Orchard Labs Logo" class="logo">
+        </div>
+
+        <h1>Black Orchard Labs</h1>
+
+        <p class="tagline">Building Liberation Technology</p>
+
+        <p class="description">
+            Tools for thought. Technology for freedom. We build software that empowers individuals
+            to own their digital conversations and reclaim their data from walled gardens.
+        </p>
+
+        <a href="https://ko-fi.com/blackorchardlabs" target="_blank" rel="noopener noreferrer" class="kofi-link">
+            ☕ Support Us on Ko-fi
+        </a>
+    </div>
+
+    <footer>
+        &copy; 2025 Black Orchard Labs • Building tools that matter
+    </footer>
+</body>
+</html>
