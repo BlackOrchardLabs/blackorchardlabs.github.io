@@ -160,6 +160,7 @@ After DNS propagates (15 minutes - 48 hours), you can enable Cloudflare proxy.
 - Make sure Cloudflare proxy is "DNS only" initially
 - Wait for GitHub to issue SSL certificate (can take 24 hours)
 - Check "Enforce HTTPS" is enabled in GitHub Pages settings
+- **If SSL certificate won't provision:** See `SSL_FIX_GUIDE.md` for step-by-step fix (remove/re-add custom domain)
 
 **404 error?**
 - Verify CNAME file exists in your repository
