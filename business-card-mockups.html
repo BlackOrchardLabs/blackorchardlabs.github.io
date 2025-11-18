@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Orchard Labs - Business Card Mockups</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #1a1a1a;
+            color: #e0e0e0;
+            padding: 2rem;
+        }
+
+        h1 {
+            text-align: center;
+            color: #C0C0C0;
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #808080;
+            margin-bottom: 3rem;
+            font-size: 1rem;
+        }
+
+        .mockups-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(800px, 1fr));
+            gap: 3rem;
+        }
+
+        .variation {
+            margin-bottom: 2rem;
+        }
+
+        .variation-title {
+            color: #C0C0C0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .card-pair {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            width: 350px;
+            height: 200px;
+            background: #0a0a0a;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            box-shadow:
+                0 8px 16px rgba(0, 0, 0, 0.6),
+                inset 0 0 60px rgba(255, 255, 255, 0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(192, 192, 192, 0.02) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(192, 192, 192, 0.02) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .card-label {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            font-size: 0.7rem;
+            color: #404040;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Logo SVG */
+        .logo {
+            width: 80px;
+            height: 80px;
+            fill: #C0C0C0;
+            filter: drop-shadow(0 0 8px rgba(192, 192, 192, 0.3));
+        }
+
+        .logo-small {
+            width: 40px;
+            height: 40px;
+        }
+
+        .logo-large {
+            width: 120px;
+            height: 120px;
+        }
+
+        .logo-inline {
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 0.5rem;
+        }
+
+        .company-name {
+            color: #C0C0C0;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .company-name-large {
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+        }
+
+        .tagline {
+            color: #909090;
+            font-size: 0.7rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+
+        .contact-info {
+            color: #C0C0C0;
+            font-size: 0.75rem;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        .contact-info .name {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            color: #e0e0e0;
+        }
+
+        .contact-info .title {
+            font-size: 0.7rem;
+            color: #909090;
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-info .detail {
+            margin: 0.2rem 0;
+            font-weight: 400;
+        }
+
+        /* Variation-specific layouts */
+
+        /* Variation 1: Classic Centered */
+        .v1-front {
+            justify-content: space-between;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .v1-front .tagline {
+            margin-top: auto;
+        }
+
+        /* Variation 2: Logo Top-Left */
+        .v2-front {
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+
+        .v2-front .logo {
+            align-self: flex-start;
+        }
+
+        .v2-front .company-name {
+            text-align: left;
+            align-self: flex-start;
+            margin-top: 0.75rem;
+        }
+
+        .v2-front .tagline {
+            align-self: center;
+            margin-top: auto;
+        }
+
+        .v2-back {
+            align-items: flex-start;
+        }
+
+        .v2-back .contact-info {
+            text-align: left;
+        }
+
+        /* Variation 3: Minimalist Logo Only */
+        .v3-front {
+            justify-content: center;
+        }
+
+        .v3-back {
+            justify-content: flex-start;
+            align-items: center;
+            padding-top: 1.5rem;
+        }
+
+        .v3-back .header {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Variation 4: Asymmetric Modern */
+        .v4-front {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .v4-front .left-side {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .v4-front .right-side {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            text-align: right;
+        }
+
+        .v4-back {
+            justify-content: flex-end;
+            align-items: flex-start;
+            padding: 1.5rem;
+        }
+
+        .v4-back .contact-info {
+            text-align: left;
+        }
+
+        /* Variation 5: Logo + Company Name Only */
+        .v5-front {
+            justify-content: center;
+        }
+
+        /* Variation 6: Bold Typography Focus */
+        .v6-front {
+            justify-content: center;
+        }
+
+        .v6-front .company-name-bold {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 0.02em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (max-width: 1200px) {
+            .mockups-container {
+                grid-template-columns: 1fr;
+            }
+
+            .card-pair {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Black Orchard Labs Business Card Mockups</h1>
+    <p class="subtitle">32pt Black Soft-Touch Stock with Silver Foil • 3.5" × 2"</p>
+
+    <div class="mockups-container">
+        <!-- Variation 1: Classic Centered -->
+        <div class="variation">
+            <h2 class="variation-title">Variation 1: Classic Centered</h2>
+            <div class="card-pair">
+                <div class="card v1-front">
+                    <span class="card-label">Front</span>
+                    <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <line x1="50" y1="2" x2="50" y2="98" stroke="currentColor" stroke-width="1.5"/>
+                        <!-- Infinity knot left side -->
+                        <path d="M 25,40 Q 20,30 30,25 Q 40,20 45,30 Q 50,40 45,50 Q 40,60 30,55 Q 20,50 25,40 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <!-- Infinity knot right side -->
+                        <path d="M 75,60 Q 80,70 70,75 Q 60,80 55,70 Q 50,60 55,50 Q 60,40 70,45 Q 80,50 75,60 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <!-- Thorns -->
+                        <path d="M 70,15 L 75,8 L 80,15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="miter"/>
+                        <path d="M 85,30 L 92,27 L 90,35" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="miter"/>
+                        <path d="M 85,70 L 92,73 L 90,65" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="miter"/>
+                        <path d="M 70,85 L 75,92 L 80,85" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="miter"/>
+                        <path d="M 30,85 L 25,92 L 20,85" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="miter"/>
+                        <path d="M 15,70 L 8,73 L 10,65" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="miter"/>
+                        <path d="M 15,30 L 8,27 L 10,35" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="miter"/>
+                        <path d="M 30,15 L 25,8 L 20,15" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="miter"/>
+                    </svg>
+                    <div class="company-name">BLACK ORCHARD LABS</div>
+                    <div class="tagline">Building Liberation Technology</div>
+                </div>
+                <div class="card">
+                    <span class="card-label">Back</span>
+                    <div class="contact-info">
+                        <div class="name">Eric Gustafson</div>
+                        <div class="title">Software Developer</div>
+                        <div class="detail">blackorchardlabs.com</div>
+                        <div class="detail">blackorchardlabs@gmail.com</div>
+                        <div class="detail">512-387-7221</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Variation 2: Logo Top-Left -->
+        <div class="variation">
+            <h2 class="variation-title">Variation 2: Logo Top-Left</h2>
+            <div class="card-pair">
+                <div class="card v2-front">
+                    <span class="card-label">Front</span>
+                    <svg class="logo logo-small" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <line x1="50" y1="2" x2="50" y2="98" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M 25,40 Q 20,30 30,25 Q 40,20 45,30 Q 50,40 45,50 Q 40,60 30,55 Q 20,50 25,40 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M 75,60 Q 80,70 70,75 Q 60,80 55,70 Q 50,60 55,50 Q 60,40 70,45 Q 80,50 75,60 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M 70,15 L 75,8 L 80,15" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M 85,30 L 92,27 L 90,35" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M 85,70 L 92,73 L 90,65" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M 70,85 L 75,92 L 80,85" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M 30,85 L 25,92 L 20,85" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M 15,70 L 8,73 L 10,65" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M 15,30 L 8,27 L 10,35" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M 30,15 L 25,8 L 20,15" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                    <div class="company-name">BLACK ORCHARD LABS</div>
+                    <div class="tagline">Building Liberation Technology</div>
+                </div>
+                <div class="card v2-back">
+                    <span class="card-label">Back</span>
+                    <div class="contact-info">
+                        <div class="name">Eric Gustafson</div>
+                        <div class="title">Software Developer</div>
+                        <div class="detail">blackorchardlabs.com</div>
+                        <div class="detail">blackorchardlabs@gmail.com</div>
+                        <div class="detail">512-387-7221</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Variation 3: Minimalist Logo Only -->
+        <div class="variation">
+            <h2 class="variation-title">Variation 3: Minimalist Logo Only</h2>
+            <div class="card-pair">
+                <div class="card v3-front">
+                    <span class="card-label">Front</span>
+                    <svg class="logo logo-large" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <line x1="50" y1="2" x2="50" y2="98" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M 25,40 Q 20,30 30,25 Q 40,20 45,30 Q 50,40 45,50 Q 40,60 30,55 Q 20,50 25,40 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M 75,60 Q 80,70 70,75 Q 60,80 55,70 Q 50,60 55,50 Q 60,40 70,45 Q 80,50 75,60 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M 70,15 L 75,8 L 80,15" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M 85,30 L 92,27 L 90,35" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M 85,70 L 92,73 L 90,65" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M 70,85 L 75,92 L 80,85" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M 30,85 L 25,92 L 20,85" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M 15,70 L 8,73 L 10,65" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M 15,30 L 8,27 L 10,35" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M 30,15 L 25,8 L 20,15" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                </div>
+                <div class="card v3-back">
+                    <span class="card-label">Back</span>
+                    <div class="header">
+                        <div class="company-name">BLACK ORCHARD LABS</div>
+                        <div class="tagline">Building Liberation Technology</div>
+                    </div>
+                    <div class="contact-info">
+                        <div class="name">Eric Gustafson</div>
+                        <div class="title">Software Developer</div>
+                        <div class="detail">blackorchardlabs.com</div>
+                        <div class="detail">blackorchardlabs@gmail.com</div>
+                        <div class="detail">512-387-7221</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Variation 4: Asymmetric Modern -->
+        <div class="variation">
+            <h2 class="variation-title">Variation 4: Asymmetric Modern</h2>
+            <div class="card-pair">
+                <div class="card v4-front">
+                    <span class="card-label">Front</span>
+                    <div class="left-side">
+                        <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                            <line x1="50" y1="2" x2="50" y2="98" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M 25,40 Q 20,30 30,25 Q 40,20 45,30 Q 50,40 45,50 Q 40,60 30,55 Q 20,50 25,40 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M 75,60 Q 80,70 70,75 Q 60,80 55,70 Q 50,60 55,50 Q 60,40 70,45 Q 80,50 75,60 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M 70,15 L 75,8 L 80,15" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M 85,30 L 92,27 L 90,35" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M 85,70 L 92,73 L 90,65" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M 70,85 L 75,92 L 80,85" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M 30,85 L 25,92 L 20,85" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M 15,70 L 8,73 L 10,65" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M 15,30 L 8,27 L 10,35" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                            <path d="M 30,15 L 25,8 L 20,15" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <div class="right-side">
+                        <div class="company-name">BLACK<br>ORCHARD<br>LABS</div>
+                        <div class="tagline" style="margin-top: 1rem;">Building Liberation<br>Technology</div>
+                    </div>
+                </div>
+                <div class="card v4-back">
+                    <span class="card-label">Back</span>
+                    <div class="contact-info">
+                        <div class="name">Eric Gustafson</div>
+                        <div class="title">Software Developer</div>
+                        <div class="detail">blackorchardlabs.com</div>
+                        <div class="detail">blackorchardlabs@gmail.com</div>
+                        <div class="detail">512-387-7221</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Variation 5: Logo + Company Name Only -->
+        <div class="variation">
+            <h2 class="variation-title">Variation 5: Logo + Company Name Only</h2>
+            <div class="card-pair">
+                <div class="card v5-front">
+                    <span class="card-label">Front</span>
+                    <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <line x1="50" y1="2" x2="50" y2="98" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M 25,40 Q 20,30 30,25 Q 40,20 45,30 Q 50,40 45,50 Q 40,60 30,55 Q 20,50 25,40 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M 75,60 Q 80,70 70,75 Q 60,80 55,70 Q 50,60 55,50 Q 60,40 70,45 Q 80,50 75,60 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M 70,15 L 75,8 L 80,15" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M 85,30 L 92,27 L 90,35" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M 85,70 L 92,73 L 90,65" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M 70,85 L 75,92 L 80,85" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M 30,85 L 25,92 L 20,85" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M 15,70 L 8,73 L 10,65" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M 15,30 L 8,27 L 10,35" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M 30,15 L 25,8 L 20,15" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                    <div class="company-name company-name-large">BLACK ORCHARD LABS</div>
+                </div>
+                <div class="card">
+                    <span class="card-label">Back</span>
+                    <div class="tagline" style="margin-bottom: 1.5rem;">Building Liberation Technology</div>
+                    <div class="contact-info">
+                        <div class="name">Eric Gustafson</div>
+                        <div class="title">Software Developer</div>
+                        <div class="detail">blackorchardlabs.com</div>
+                        <div class="detail">blackorchardlabs@gmail.com</div>
+                        <div class="detail">512-387-7221</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Variation 6: Bold Typography Focus -->
+        <div class="variation">
+            <h2 class="variation-title">Variation 6: Bold Typography Focus</h2>
+            <div class="card-pair">
+                <div class="card v6-front">
+                    <span class="card-label">Front</span>
+                    <div class="company-name-bold">
+                        BLACK ORCHARD LABS
+                        <svg class="logo logo-inline" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <line x1="50" y1="2" x2="50" y2="98" stroke="currentColor" stroke-width="2"/>
+                            <path d="M 25,40 Q 20,30 30,25 Q 40,20 45,30 Q 50,40 45,50 Q 40,60 30,55 Q 20,50 25,40 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <path d="M 75,60 Q 80,70 70,75 Q 60,80 55,70 Q 50,60 55,50 Q 60,40 70,45 Q 80,50 75,60 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div class="tagline" style="margin-top: 1rem;">Building Liberation Technology</div>
+                </div>
+                <div class="card">
+                    <span class="card-label">Back</span>
+                    <div class="contact-info">
+                        <div class="name">Eric Gustafson</div>
+                        <div class="title">Software Developer</div>
+                        <div class="detail">blackorchardlabs.com</div>
+                        <div class="detail">blackorchardlabs@gmail.com</div>
+                        <div class="detail">512-387-7221</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
