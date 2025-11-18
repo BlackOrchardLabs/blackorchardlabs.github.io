@@ -293,6 +293,61 @@
             margin-right: auto;
         }
 
+        .download-section {
+            margin: 2.5rem 0 2rem 0;
+        }
+
+        .download-title {
+            font-size: 1.1rem;
+            color: #00FFFF;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 0.85rem 2.25rem;
+            background: linear-gradient(135deg, #00FFFF 0%, #00D4D4 100%);
+            color: #0a0e27;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 255, 255, 0.5);
+            background: linear-gradient(135deg, #00D4D4 0%, #00FFFF 100%);
+        }
+
+        .download-btn:active {
+            transform: translateY(0);
+        }
+
+        .download-btn.coming-soon {
+            background: linear-gradient(135deg, #2a3f5f 0%, #1a2f4f 100%);
+            color: #6a7a9a;
+            box-shadow: 0 4px 15px rgba(42, 63, 95, 0.3);
+            cursor: not-allowed;
+        }
+
+        .download-btn.coming-soon:hover {
+            transform: none;
+            box-shadow: 0 4px 15px rgba(42, 63, 95, 0.3);
+        }
+
         .kofi-link {
             display: inline-block;
             margin-top: 2rem;
@@ -399,6 +454,24 @@
                 padding: 0 0.5rem;
             }
 
+            .download-section {
+                margin: 2rem 0 1.5rem 0;
+            }
+
+            .download-title {
+                font-size: 1rem;
+            }
+
+            .download-buttons {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .download-btn {
+                padding: 0.75rem 1.75rem;
+                font-size: 0.95rem;
+            }
+
             .logo {
                 width: 140px;
                 height: 140px;
@@ -478,6 +551,15 @@
                 line-height: 1.5;
             }
 
+            .download-title {
+                font-size: 0.9rem;
+            }
+
+            .download-btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
             .logo {
                 width: 110px;
                 height: 110px;
@@ -527,6 +609,18 @@
             Tools for thought. Technology for freedom. We build software that empowers individuals
             to own their digital conversations and reclaim their data from walled gardens.
         </p>
+
+        <div class="download-section">
+            <p class="download-title">Get De:dobe – LLM Conversation Extractor</p>
+            <div class="download-buttons">
+                <a href="https://addons.mozilla.org/firefox/addon/dedobe-extractor/" target="_blank" rel="noopener noreferrer" class="download-btn">
+                    🦊 Available Now on Firefox
+                </a>
+                <a href="#" class="download-btn coming-soon" title="Chrome approval pending">
+                    🌐 Chrome (Coming Soon)
+                </a>
+            </div>
+        </div>
 
         <a href="https://ko-fi.com/blackorchardlabs" target="_blank" rel="noopener noreferrer" class="kofi-link">
             ☕ Support Us on Ko-fi
