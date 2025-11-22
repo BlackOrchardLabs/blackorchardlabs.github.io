@@ -630,5 +630,26 @@
     <footer>
         &copy; 2025 Black Orchard Labs • Building tools that matter
     </footer>
+
+    <script>
+        // Load the heartbeat sounds
+        const lubSound = new Audio('lub.mp3');
+        const dubSound = new Audio('dub.mp3');
+
+        // Get the logo element
+        const logo = document.querySelector('.logo');
+
+        // LUB - when mouse enters the logo
+        logo.addEventListener('mouseenter', () => {
+            lubSound.currentTime = 0;
+            lubSound.play().catch(err => console.log('Audio play failed:', err));
+        });
+
+        // DUB - when mouse leaves the logo
+        logo.addEventListener('mouseleave', () => {
+            dubSound.currentTime = 0;
+            dubSound.play().catch(err => console.log('Audio play failed:', err));
+        });
+    </script>
 </body>
 </html>
