@@ -612,7 +612,7 @@
     <!-- Main content -->
     <div class="container">
         <div class="logo-container">
-            <img src="black_orchard_logo.png" alt="Black Orchard Labs Logo" class="logo">
+            <img src="black_orchard_logo.png" alt="Black Orchard Labs Logo" class="logo" draggable="false">
         </div>
 
         <h1>Black Orchard Labs</h1>
@@ -707,6 +707,10 @@
         // === MOBILE: Touch events ===
         logo.addEventListener('touchstart', (e) => {
             setTouchDevice();
+
+            // Prevent long-press context menu
+            e.preventDefault();
+
             if (!isActivated) return;
 
             // Track touch position to detect scroll
@@ -714,7 +718,7 @@
             isScrolling = false;
 
             playSound(lubSound);
-        }, { passive: true });
+        }, { passive: false });
 
         logo.addEventListener('touchmove', (e) => {
             // If user moves finger significantly, they're scrolling
