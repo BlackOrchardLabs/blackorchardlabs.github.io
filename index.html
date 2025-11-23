@@ -258,6 +258,11 @@
             animation: glow-pulse 5s ease-in-out infinite;
             transition: transform 0.15s ease;
             cursor: pointer;
+            /* Prevent long-press menu on mobile */
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+            touch-action: manipulation;
         }
 
         .logo:hover {
@@ -735,6 +740,12 @@
                 e.preventDefault();
             }
         }, { passive: false });
+
+        // Prevent long-press context menu on mobile
+        logo.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            return false;
+        });
     </script>
 </body>
 </html>
