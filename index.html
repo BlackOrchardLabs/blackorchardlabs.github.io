@@ -641,29 +641,46 @@
     </footer>
 
     <script>
-        // Load all sounds
+        // Load and preload all sounds for instant playback
         const clickSound = new Audio('slide_click.mp3');
         const lubSound = new Audio('lub.mp3');
         const dubSound = new Audio('dub.mp3');
 
+        // Preload audio files
+        clickSound.preload = 'auto';
+        lubSound.preload = 'auto';
+        dubSound.preload = 'auto';
+
         // Get the logo element
         const logo = document.querySelector('.logo');
 
-        // Track activation state
+        // Track states
         let isActivated = false;
+        let isTouchDevice = false;
+        let touchStartY = 0;
+        let isScrolling = false;
 
-        // Click to activate - works on both click and touch
-        logo.addEventListener('click', () => {
-            if (isActivated) return; // Only activate once per session
+        // Detect touch device on first touch
+        function setTouchDevice() {
+            isTouchDevice = true;
+        }
 
-            // Play click sound
-            clickSound.currentTime = 0;
-            clickSound.play().catch(err => console.log('Audio play failed:', err));
+        // Play sound helper with error handling
+        function playSound(sound) {
+            sound.currentTime = 0;
+            sound.play().catch(err => console.log('Audio play failed:', err));
+        }
+
+        // Click/tap to activate
+        logo.addEventListener('click', (e) => {
+            if (isActivated) return;
+
+            playSound(clickSound);
 
             // Press animation
             logo.classList.add('pressed');
 
-            // Spring back and activate after animation
+            // Spring back and activate
             setTimeout(() => {
                 logo.classList.remove('pressed');
                 logo.classList.add('activated');
@@ -671,19 +688,53 @@
             }, 150);
         });
 
-        // LUB - when mouse enters the logo (only after activation)
+        // === DESKTOP: Mouse events ===
         logo.addEventListener('mouseenter', () => {
-            if (!isActivated) return;
-            lubSound.currentTime = 0;
-            lubSound.play().catch(err => console.log('Audio play failed:', err));
+            if (!isActivated || isTouchDevice) return;
+            playSound(lubSound);
         });
 
-        // DUB - when mouse leaves the logo (only after activation)
         logo.addEventListener('mouseleave', () => {
-            if (!isActivated) return;
-            dubSound.currentTime = 0;
-            dubSound.play().catch(err => console.log('Audio play failed:', err));
+            if (!isActivated || isTouchDevice) return;
+            playSound(dubSound);
         });
+
+        // === MOBILE: Touch events ===
+        logo.addEventListener('touchstart', (e) => {
+            setTouchDevice();
+            if (!isActivated) return;
+
+            // Track touch position to detect scroll
+            touchStartY = e.touches[0].clientY;
+            isScrolling = false;
+
+            playSound(lubSound);
+        }, { passive: true });
+
+        logo.addEventListener('touchmove', (e) => {
+            // If user moves finger significantly, they're scrolling
+            const touchY = e.touches[0].clientY;
+            if (Math.abs(touchY - touchStartY) > 10) {
+                isScrolling = true;
+            }
+        }, { passive: true });
+
+        logo.addEventListener('touchend', (e) => {
+            if (!isActivated) return;
+
+            // Only play dub if not scrolling
+            if (!isScrolling) {
+                playSound(dubSound);
+            }
+            isScrolling = false;
+        }, { passive: true });
+
+        // Prevent ghost clicks on mobile
+        logo.addEventListener('touchend', (e) => {
+            if (isActivated) {
+                e.preventDefault();
+            }
+        }, { passive: false });
     </script>
 </body>
 </html>
