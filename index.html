@@ -277,6 +277,11 @@
             transform: scale(1.05);
         }
 
+        /* Mobile touch effect - same as hover */
+        .logo.touched {
+            transform: scale(1.05);
+        }
+
         h1 {
             font-size: 3rem;
             font-weight: 700;
@@ -708,6 +713,9 @@
         logo.addEventListener('touchstart', (e) => {
             setTouchDevice();
 
+            // Visual feedback - grow on touch (like hover on desktop)
+            logo.classList.add('touched');
+
             // Only prevent default after activation (allows first click to work in Firefox)
             if (isActivated) {
                 e.preventDefault();
@@ -729,6 +737,9 @@
         }, { passive: true });
 
         logo.addEventListener('touchend', (e) => {
+            // Visual feedback - shrink back
+            logo.classList.remove('touched');
+
             if (!isActivated) return;
 
             // Only play dub if not scrolling, with slight delay for natural heartbeat rhythm
@@ -744,6 +755,12 @@
                 e.preventDefault();
             }
         }, { passive: false });
+
+        // Handle touch cancel (interrupted touch)
+        logo.addEventListener('touchcancel', () => {
+            logo.classList.remove('touched');
+            isScrolling = false;
+        });
 
         // Prevent long-press context menu on mobile
         logo.addEventListener('contextmenu', (e) => {
