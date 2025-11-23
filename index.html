@@ -708,16 +708,16 @@
         logo.addEventListener('touchstart', (e) => {
             setTouchDevice();
 
-            // Prevent long-press context menu
-            e.preventDefault();
+            // Only prevent default after activation (allows first click to work in Firefox)
+            if (isActivated) {
+                e.preventDefault();
 
-            if (!isActivated) return;
+                // Track touch position to detect scroll
+                touchStartY = e.touches[0].clientY;
+                isScrolling = false;
 
-            // Track touch position to detect scroll
-            touchStartY = e.touches[0].clientY;
-            isScrolling = false;
-
-            playSound(lubSound);
+                playSound(lubSound);
+            }
         }, { passive: false });
 
         logo.addEventListener('touchmove', (e) => {
