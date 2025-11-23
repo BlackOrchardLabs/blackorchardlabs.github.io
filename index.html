@@ -256,10 +256,19 @@
             width: 200px;
             height: 200px;
             animation: glow-pulse 5s ease-in-out infinite;
-            transition: transform 0.3s ease;
+            transition: transform 0.15s ease;
+            cursor: pointer;
         }
 
         .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo.pressed {
+            transform: scale(0.95) translateY(3px);
+        }
+
+        .logo.activated:hover {
             transform: scale(1.05);
         }
 
@@ -632,21 +641,46 @@
     </footer>
 
     <script>
-        // Load the heartbeat sounds
+        // Load all sounds
+        const clickSound = new Audio('slide_click.mp3');
         const lubSound = new Audio('lub.mp3');
         const dubSound = new Audio('dub.mp3');
 
         // Get the logo element
         const logo = document.querySelector('.logo');
 
-        // LUB - when mouse enters the logo
+        // Track activation state
+        let isActivated = false;
+
+        // Click to activate - works on both click and touch
+        logo.addEventListener('click', () => {
+            if (isActivated) return; // Only activate once per session
+
+            // Play click sound
+            clickSound.currentTime = 0;
+            clickSound.play().catch(err => console.log('Audio play failed:', err));
+
+            // Press animation
+            logo.classList.add('pressed');
+
+            // Spring back and activate after animation
+            setTimeout(() => {
+                logo.classList.remove('pressed');
+                logo.classList.add('activated');
+                isActivated = true;
+            }, 150);
+        });
+
+        // LUB - when mouse enters the logo (only after activation)
         logo.addEventListener('mouseenter', () => {
+            if (!isActivated) return;
             lubSound.currentTime = 0;
             lubSound.play().catch(err => console.log('Audio play failed:', err));
         });
 
-        // DUB - when mouse leaves the logo
+        // DUB - when mouse leaves the logo (only after activation)
         logo.addEventListener('mouseleave', () => {
+            if (!isActivated) return;
             dubSound.currentTime = 0;
             dubSound.play().catch(err => console.log('Audio play failed:', err));
         });
