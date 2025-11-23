@@ -278,8 +278,9 @@
         }
 
         /* Mobile touch effect - same as hover */
-        .logo.touched {
-            transform: scale(1.05);
+        .logo.touched,
+        .logo.activated.touched {
+            transform: scale(1.05) !important;
         }
 
         h1 {
