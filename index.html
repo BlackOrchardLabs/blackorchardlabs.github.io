@@ -722,9 +722,9 @@
         logo.addEventListener('touchend', (e) => {
             if (!isActivated) return;
 
-            // Only play dub if not scrolling
+            // Only play dub if not scrolling, with slight delay for natural heartbeat rhythm
             if (!isScrolling) {
-                playSound(dubSound);
+                setTimeout(() => playSound(dubSound), 200);
             }
             isScrolling = false;
         }, { passive: true });
