@@ -1,0 +1,161 @@
+BLACK ORCHARD LABS BUSINESS CARDS
+MOO.COM UPLOAD INSTRUCTIONS
+=========================================
+
+QUICK REFERENCE: FILES TO UPLOAD
+---------------------------------
+
+You now have 4 separate single-page HTML files:
+
+1. business-card-front-color.html  → MOO "Front" → "Upload design"
+2. business-card-front-foil.html   → MOO "Front" → "Upload Silver Foil Element"
+3. business-card-back-color.html   → MOO "Back" → "Upload design"
+4. business-card-back-foil.html    → MOO "Back" → "Upload Silver Foil Element"
+
+STEP-BY-STEP MOO UPLOAD PROCESS
+--------------------------------
+
+STEP 1: Create PDFs from HTML files
+------------------------------------
+For each of the 4 HTML files:
+
+1. Open the file in Chrome or Firefox
+2. Press Ctrl+P (Windows) or Cmd+P (Mac)
+3. Set these print settings:
+   - Destination: "Save as PDF"
+   - Layout: Landscape
+   - Paper size: Custom (3.75 × 2.25 inches)
+   - Margins: None
+   - Scale: 100%
+   - Options: ☑ Background graphics
+4. Save with matching name:
+   - business-card-front-color.html → business-card-front-color.pdf
+   - business-card-front-foil.html → business-card-front-foil.pdf
+   - business-card-back-color.html → business-card-back-color.pdf
+   - business-card-back-foil.html → business-card-back-foil.pdf
+
+STEP 2: Go to MOO.com
+---------------------
+1. Visit moo.com
+2. Navigate to: Business Cards → Premium Business Cards
+3. Select:
+   - Size: Standard (3.5" × 2")
+   - Finish: Soft Touch
+   - Special Finish: Silver Foil
+   - Quantity: 500 (or your preferred amount)
+
+STEP 3: Upload Front Side
+--------------------------
+MOO's interface will show "FRONT" section with two upload buttons:
+
+1. Click "Upload design" button
+   → Upload: business-card-front-color.pdf
+   → This is your full-color design with black background
+
+2. Click "Upload Silver Foil Element" button
+   → Upload: business-card-front-foil.pdf
+   → This shows where silver foil will be applied
+
+3. MOO will overlay these to show preview
+4. Verify that foil placement looks correct
+
+STEP 4: Upload Back Side
+-------------------------
+MOO's interface will show "BACK" section with two upload buttons:
+
+1. Click "Upload design" button
+   → Upload: business-card-back-color.pdf
+   → This is your full-color design with black background
+
+2. Click "Upload Silver Foil Element" button
+   → Upload: business-card-back-foil.pdf
+   → This shows where silver foil will be applied
+
+3. MOO will overlay these to show preview
+4. Verify that foil placement looks correct
+5. Check that QR code is visible and not clipped
+
+STEP 5: Review and Order
+-------------------------
+1. Review combined preview of front and back
+2. Check all elements are within safe zone
+3. Verify contact information is correct:
+   - Name: Eric Gustafson
+   - Title: Software Developer
+   - Website: blackorchardlabs.com
+   - Email: blackorchardlabs@gmail.com
+   - Phone: 512-387-7221
+4. Request digital proof (highly recommended)
+5. Add to cart and complete order
+
+WHAT TO TELL MOO SUPPORT (IF NEEDED)
+-------------------------------------
+If MOO asks about your design specifications:
+
+"Black soft-touch business cards with silver foil stamping.
+Background is rich black (40C/30M/30Y/100K).
+Foil layer files show placement in K=100 black.
+All files include 0.125" bleed.
+Please provide digital proof before production."
+
+PRICING EXPECTATIONS
+--------------------
+500 Premium Business Cards with Silver Foil:
+- Base price: ~$150-200
+- Soft Touch finish: Included in premium
+- Silver Foil: ~$50-100 additional
+- Total estimate: $200-300
+- Turnaround: 5-7 business days
+
+TROUBLESHOOTING
+---------------
+
+Issue: MOO says dimensions are wrong
+Fix: Ensure you used "Custom 3.75 × 2.25 inches" when printing to PDF
+
+Issue: Background is white instead of black
+Fix: Make sure "Background graphics" was checked in print settings
+
+Issue: Foil layer looks wrong
+Fix: Verify you uploaded the -foil.pdf files to "Upload Silver Foil Element" buttons
+
+Issue: Files won't upload
+Fix: Try different browser (Chrome works best) or contact MOO support
+
+Issue: Preview looks misaligned
+Fix: Ensure all 4 PDFs were created with identical print settings
+
+WHAT CHANGED FROM PREVIOUS VERSION
+-----------------------------------
+✓ Fixed QR code clipping issue (reduced from 0.75in to 0.7in)
+✓ Split into 4 separate single-page files for easier upload
+✓ Each file matches MOO's exact upload button structure
+✓ Clearer instructions for which file goes where
+
+VERIFICATION CHECKLIST
+----------------------
+Before uploading to MOO:
+
+□ All 4 HTML files converted to PDF
+□ All PDFs are exactly 3.75" × 2.25"
+□ Black backgrounds are visible in color PDFs
+□ Foil PDFs show black on white (not gray)
+□ QR code is visible and not clipped in back PDFs
+□ All contact information is correct
+□ Logo appears clean with no black square
+□ Text is legible and properly positioned
+
+READY TO UPLOAD!
+----------------
+You have everything needed:
+✓ 4 separate single-page HTML files
+✓ Clear upload instructions
+✓ File-to-button mapping
+✓ QR code clipping issue fixed
+
+Next step: Create PDFs and upload to MOO!
+
+=========================================
+Good luck with your business cards!
+They're going to look amazing! 🖤✨
+=========================================

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Orchard Labs - Front Foil</title>
+    <style>
+        @page {
+            size: 3.75in 2.25in;
+            margin: 0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: #f0f0f0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .print-note {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+
+        .print-note h2 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .print-note p {
+            color: #856404;
+            line-height: 1.6;
+        }
+
+        .card-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            page-break-inside: avoid;
+        }
+
+        .card-label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .card-print {
+            width: 3.75in;
+            height: 2.25in;
+            min-height: 2.25in;
+            max-height: 2.25in;
+            background: white;
+            position: relative;
+            box-sizing: border-box;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        /* Trim line (actual card size) */
+        .card-print::before {
+            content: '';
+            position: absolute;
+            top: 0.125in;
+            left: 0.125in;
+            width: 3.5in;
+            height: 2in;
+            border: 1px dashed rgba(255, 0, 0, 0.3);
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* Safe zone */
+        .card-print::after {
+            content: '';
+            position: absolute;
+            top: 0.25in;
+            left: 0.25in;
+            width: 3.25in;
+            height: 1.75in;
+            border: 1px dashed rgba(0, 255, 0, 0.3);
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .card-content {
+            width: 100%;
+            height: 100%;
+            padding: 0.25in;
+            display: flex;
+            align-items: center;
+            gap: 0.3in;
+            position: relative;
+        }
+
+        .logo {
+            width: 1.5in;
+            height: 1.5in;
+        }
+
+        .text-block {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.15in;
+        }
+
+        .company {
+            font-size: 14pt;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            line-height: 1.2;
+            color: #000000;
+        }
+
+        .tagline {
+            font-size: 9pt;
+            font-weight: 300;
+            font-style: italic;
+            letter-spacing: 0.12em;
+            line-height: 1.4;
+            color: #000000;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .print-note,
+            .card-label {
+                display: none;
+            }
+
+            .card-print::before,
+            .card-print::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-note">
+        <h2>Front Foil Element - MOO Upload</h2>
+        <p><strong>Single-page file for MOO's "Front" section → "Upload Silver Foil Element" button</strong></p>
+        <ol style="margin-left: 20px; margin-top: 10px;">
+            <li>Open this file in Chrome or Firefox</li>
+            <li>Print to PDF (Press Quality)</li>
+            <li>Ensure "Backgrounds" option is checked</li>
+            <li>Set margins to "None"</li>
+            <li>Upload to MOO: Front section → Upload Silver Foil Element</li>
+        </ol>
+        <p style="margin-top: 15px;"><strong>NOTE:</strong> Black elements (K=100) indicate where silver foil will be applied. White background is for visibility only.</p>
+    </div>
+
+    <div class="card-wrapper">
+        <div class="card-label">Front Foil Element (K=100 Black on White)</div>
+        <div class="card-print">
+            <div class="card-content">
+                <img src="foil_logo.png" alt="Black Orchard Labs Logo" class="logo">
+                <div class="text-block">
+                    <div class="company">BLACK<br>ORCHARD<br>LABS</div>
+                    <div class="tagline">Measuring the<br>Unmeasurable</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

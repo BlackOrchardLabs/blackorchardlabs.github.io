@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Orchard Labs Business Card - FRONT (Design + Foil)</title>
+    <style>
+        @page {
+            size: 3.75in 2.25in;
+            margin: 0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: #f0f0f0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .print-note {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+
+        .print-note h2 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .print-note p {
+            color: #856404;
+            line-height: 1.6;
+        }
+
+        .card-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            page-break-inside: avoid;
+            margin: 0;
+            padding: 0;
+        }
+
+        .card-label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Print-ready card with bleed */
+        .card-print {
+            width: 3.75in;
+            height: 2.25in;
+            min-height: 2.25in;
+            max-height: 2.25in;
+            background: #0a0a0a;
+            position: relative;
+            box-sizing: border-box;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            page-break-inside: avoid;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Trim line (actual card size) */
+        .card-print::before {
+            content: '';
+            position: absolute;
+            top: 0.125in;
+            left: 0.125in;
+            width: 3.5in;
+            height: 2in;
+            border: 1px dashed rgba(255, 0, 0, 0.3);
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* Safe zone */
+        .card-print::after {
+            content: '';
+            position: absolute;
+            top: 0.25in;
+            left: 0.25in;
+            width: 3.25in;
+            height: 1.75in;
+            border: 1px dashed rgba(0, 255, 0, 0.3);
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .card-content {
+            width: 100%;
+            height: 100%;
+            min-height: 100%;
+            max-height: 100%;
+            padding: 0.25in;
+            position: relative;
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        /* Silver foil simulation */
+        .silver {
+            color: #C0C0C0;
+            text-shadow:
+                0 1px 1px rgba(255, 255, 255, 0.3),
+                0 -1px 1px rgba(0, 0, 0, 0.5);
+        }
+
+        /* FRONT - Variation 4: Asymmetric Modern */
+        .front .card-content {
+            display: flex;
+            align-items: center;
+            gap: 0.3in;
+        }
+
+        .front .logo {
+            width: 1.5in;
+            height: 1.5in;
+            filter:
+                drop-shadow(0 2px 3px rgba(0, 0, 0, 0.6))
+                drop-shadow(0 0 2px rgba(255, 255, 255, 0.2));
+        }
+
+        .front .text-block {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.15in;
+        }
+
+        .front .company {
+            font-size: 14pt;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            line-height: 1.2;
+        }
+
+        .front .tagline {
+            font-size: 9pt;
+            font-weight: 300;
+            font-style: italic;
+            letter-spacing: 0.12em;
+            line-height: 1.4;
+        }
+
+        /* Foil layer version */
+        .foil-layer {
+            background: white !important;
+        }
+
+        .foil-layer .silver {
+            color: #000000 !important;
+            text-shadow: none !important;
+        }
+
+        .foil-layer .logo {
+            filter: brightness(0) !important;
+        }
+
+        .guidelines {
+            max-width: 800px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .guidelines h2 {
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #C0C0C0;
+            padding-bottom: 10px;
+        }
+
+        .guidelines h3 {
+            color: #555;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .guidelines p, .guidelines li {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .guidelines ul {
+            margin-left: 20px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .print-note,
+            .card-label,
+            .guidelines {
+                display: none;
+            }
+
+            .card-print::before,
+            .card-print::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-note">
+        <h2>FRONT - Design + Foil Element (MOO Upload Format)</h2>
+        <p><strong>This file contains both layers for the FRONT of the card:</strong></p>
+        <ul style="margin-left: 20px; margin-top: 10px;">
+            <li><strong>Page 1:</strong> Front color design (rich black background)</li>
+            <li><strong>Page 2:</strong> Front foil element (K=100 black on white)</li>
+        </ul>
+        <p style="margin-top: 15px;"><strong>To create PDF for MOO:</strong></p>
+        <ol style="margin-left: 20px; margin-top: 5px;">
+            <li>Open this file in Chrome or Firefox</li>
+            <li>Print to PDF (Press Quality)</li>
+            <li>Ensure "Backgrounds" option is checked</li>
+            <li>Set margins to "None"</li>
+            <li>Save as: business-card-front.pdf</li>
+            <li>Upload to MOO's "Front" section</li>
+        </ol>
+        <p style="margin-top: 15px;"><strong>Red line:</strong> Trim (3.5" × 2") | <strong>Green line:</strong> Safe zone</p>
+    </div>
+
+    <!-- FRONT - Color Design -->
+    <div class="card-wrapper">
+        <div class="card-label">Page 1: Front Color Design (Rich Black Background)</div>
+        <div class="card-print front">
+            <div class="card-content">
+                <img src="extracted_logo.png" alt="Black Orchard Labs Logo" class="logo">
+                <div class="text-block">
+                    <div class="company silver">BLACK<br>ORCHARD<br>LABS</div>
+                    <div class="tagline silver">Measuring the<br>Unmeasurable</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FRONT - Foil Layer -->
+    <div class="card-wrapper">
+        <div class="card-label">Page 2: Front Foil Element (K=100 Black on White)</div>
+        <div class="card-print front foil-layer">
+            <div class="card-content">
+                <img src="extracted_logo.png" alt="Black Orchard Labs Logo" class="logo">
+                <div class="text-block">
+                    <div class="company silver">BLACK<br>ORCHARD<br>LABS</div>
+                    <div class="tagline silver">Measuring the<br>Unmeasurable</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Guidelines -->
+    <div class="guidelines">
+        <h2>FRONT - MOO Upload Specifications</h2>
+
+        <h3>What This File Contains</h3>
+        <ul>
+            <li><strong>Page 1:</strong> Front color design with rich black background (40C/30M/30Y/100K)</li>
+            <li><strong>Page 2:</strong> Front foil placement layer (K=100 black indicates silver foil areas)</li>
+            <li><strong>Format:</strong> Ready for MOO's "Design + Foil Element" upload interface</li>
+        </ul>
+
+        <h3>MOO Upload Instructions</h3>
+        <ol>
+            <li>Go to MOO's business card design section</li>
+            <li>Select "Upload Your Design"</li>
+            <li>Choose "Premium Finish" → "Silver Foil"</li>
+            <li>Upload this PDF to the <strong>FRONT</strong> section</li>
+            <li>MOO will recognize Page 1 as design, Page 2 as foil element</li>
+            <li>Upload companion file (business-card-BACK.html) for back side</li>
+        </ol>
+
+        <h3>Specifications</h3>
+        <ul>
+            <li><strong>Finished Size:</strong> 3.5" × 2" (standard business card)</li>
+            <li><strong>With Bleed:</strong> 3.75" × 2.25" (0.125" bleed all sides)</li>
+            <li><strong>Background:</strong> Rich Black (40C/30M/30Y/100K)</li>
+            <li><strong>Foil:</strong> Silver hot stamped on all text and logo</li>
+            <li><strong>Stock:</strong> 16pt black uncoated with soft-touch lamination</li>
+        </ul>
+
+        <h3>Companion File</h3>
+        <ul>
+            <li><strong>business-card-BACK.html</strong> - Contains back color design + back foil element</li>
+            <li>Upload BACK file separately after uploading this FRONT file</li>
+        </ul>
+
+        <h3>Pre-Flight Checklist</h3>
+        <ul>
+            <li>✓ PDF contains exactly 2 pages</li>
+            <li>✓ Page 1: Color design with rich black background</li>
+            <li>✓ Page 2: Foil element with K=100 black on white</li>
+            <li>✓ Both pages same dimensions (3.75" × 2.25")</li>
+            <li>✓ Backgrounds option enabled in print settings</li>
+            <li>✓ Margins set to "None"</li>
+            <li>✓ All elements inside safe zone (green line)</li>
+        </ul>
+    </div>
+
+</body>
+</html>

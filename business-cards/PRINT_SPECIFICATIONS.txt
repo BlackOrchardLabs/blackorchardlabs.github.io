@@ -1,0 +1,176 @@
+BLACK ORCHARD LABS BUSINESS CARDS - PRINT SPECIFICATIONS
+========================================================
+
+CLIENT INFORMATION
+------------------
+Company: Black Orchard Labs
+Contact: Eric Gustafson
+Email: blackorchardlabs@gmail.com
+Phone: 512-387-7221
+Website: blackorchardlabs.com
+
+ORDER DETAILS
+-------------
+Product: Business Cards
+Quantity: 500 cards
+Design: Double-sided, asymmetric modern design
+
+DIMENSIONS
+----------
+Finished Size: 3.5" × 2.0" (standard business card)
+Trim Size: 3.5" × 2.0"
+Bleed Area: 3.75" × 2.25" (0.125" bleed on all sides)
+Safe Zone: 3.25" × 1.75" (0.125" margin from trim)
+
+MATERIAL SPECIFICATIONS
+-----------------------
+Cardstock: 16pt black uncoated cardstock
+Lamination: 1.5mil soft-touch/velvet matte coating (both sides)
+Total Thickness: ~19pt finished
+Finish: Matte soft-touch lamination with silver foil stamping
+
+COLOR SPECIFICATIONS
+--------------------
+Color Space: CMYK
+Background Color: Rich Black (40C / 30M / 30Y / 100K)
+Foil Color: Silver (hot stamped)
+Resolution: 300 DPI minimum
+File Format: PDF/X-1a:2001 or Press-Ready PDF
+
+FOIL STAMPING DETAILS
+---------------------
+Foil Type: Hot stamped silver foil
+Foil Application: All text elements and logo
+Foil File: Separate K=100 (pure black) layer indicating foil placement
+Foil Coverage: Logo, all text on front and back
+Special Notes: Logo is circular design with transparent background
+
+TYPOGRAPHY
+----------
+Primary Font: Helvetica Neue
+Letter Spacing: 110-120% (optimized for reversed type on dark background)
+Font Handling: All fonts must be converted to outlines/paths
+Minimum Font Size: 9pt
+
+TEXT CONTENT - FRONT (Variation 4: Asymmetric Modern)
+------------------------------------------------------
+Logo: Left side, 1.5" diameter
+Company Name: "BLACK ORCHARD LABS" (14pt, bold, silver foil)
+Tagline: "Measuring the Unmeasurable" (9pt, italic, silver foil)
+Layout: Logo on left, text block on right
+
+TEXT CONTENT - BACK (Variation 2: Left-Aligned)
+------------------------------------------------
+Name: Eric Gustafson (16pt, bold, silver foil)
+Title: Software Developer (12pt, regular, silver foil)
+Website: blackorchardlabs.com (10pt, silver foil)
+Email: blackorchardlabs@gmail.com (10pt, silver foil)
+Phone: 512-387-7221 (10pt, silver foil)
+QR Code: 0.75" × 0.75", bottom-right corner, links to blackorchardlabs.com
+Layout: All text left-aligned with generous spacing
+
+QR CODE SPECIFICATIONS
+----------------------
+Size: 0.75" × 0.75"
+Position: Bottom-right corner (within safe zone)
+Color: Silver foil
+Background: Black cardstock
+Destination URL: https://blackorchardlabs.com
+Error Correction: Level M (15% recovery)
+Format: Vector/high-resolution raster embedded in PDF
+
+FILE DELIVERY REQUIREMENTS
+---------------------------
+Files to Submit:
+1. Main Color File: business-card-front-color.pdf (with bleed)
+2. Main Color File: business-card-back-color.pdf (with bleed)
+3. Foil Layer File: business-card-front-foil.pdf (K=100 black only)
+4. Foil Layer File: business-card-back-foil.pdf (K=100 black only)
+5. This specification document
+
+File Requirements:
+- PDF format (PDF/X-1a:2001 preferred)
+- CMYK color space only (no RGB or spot colors except foil layer)
+- All fonts converted to outlines/paths
+- All images embedded (not linked)
+- Compression: None or lossless only
+- 300 DPI minimum resolution for all elements
+- Bleed extended 0.125" on all sides
+- Crop marks and registration marks optional
+
+PRE-FLIGHT CHECKLIST
+--------------------
+□ Dimensions correct: 3.75" × 2.25" (with bleed)
+□ Trim size verified: 3.5" × 2.0"
+□ Safe zone respected: 3.25" × 1.75"
+□ Background color: 40C/30M/30Y/100K
+□ All fonts converted to outlines
+□ All images embedded at 300 DPI+
+□ Color space: CMYK
+□ Foil layer file provided (K=100 black)
+□ QR code tested and functional
+□ Letter spacing applied (110-120%)
+□ Files named clearly
+□ PDF settings: Press Quality or PDF/X-1a:2001
+
+PRODUCTION NOTES
+----------------
+- Soft-touch lamination should be applied to BOTH sides
+- Foil stamping applied AFTER lamination
+- Cards should be cut to exact 3.5" × 2" size
+- Quality check: Ensure foil registration is precise
+- Packaging: Shrink-wrapped in boxes of 250 cards each
+
+TURNAROUND TIME
+---------------
+Standard: 5-7 business days after proof approval
+Rush: 3-4 business days (if available, additional cost)
+Shipping: 2-3 business days (standard ground)
+
+PROOF REQUIREMENTS
+------------------
+Digital Proof: Required before printing
+Physical Proof: Recommended for foil/finish verification
+Changes: Minor text corrections only (no design changes)
+
+RECOMMENDED PRINTERS
+--------------------
+1. Gold Image Printing (goldimageprinting.com)
+   - Specialty: Foil stamping experts
+   - Known for: High-quality soft-touch finishes
+
+2. Jukebox Print (jukeboxprint.com)
+   - Specialty: Premium textures and coatings
+   - Known for: Excellent soft-touch lamination
+
+3. PSPrint (psprint.com)
+   - Specialty: Reliable standard printing
+   - Known for: Good pricing, consistent quality
+
+4. Moo (moo.com)
+   - Specialty: Premium business cards
+   - Known for: Fast turnaround, excellent quality
+
+SPECIAL INSTRUCTIONS
+--------------------
+- Background MUST be rich black (40C/30M/30Y/100K), not standard black
+- Letter spacing is critical for legibility on dark background
+- QR code must be tested before printing
+- Foil layer must precisely align with color layer
+- Request a test card before full run if possible
+
+CONTACT FOR QUESTIONS
+---------------------
+Client: Eric Gustafson
+Email: blackorchardlabs@gmail.com
+Phone: 512-387-7221
+Best time to reach: Weekdays 9 AM - 5 PM CST
+
+FILE REVISION HISTORY
+---------------------
+Version 1.0 - 2025-11-19 - Initial print-ready design
+Created by: Claude Code (Anthropic)
+
+========================================================
+END OF PRINT SPECIFICATIONS
+========================================================

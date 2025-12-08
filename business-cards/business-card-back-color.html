@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Orchard Labs - Back Color</title>
+    <style>
+        @page {
+            size: 3.75in 2.25in;
+            margin: 0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: #f0f0f0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .print-note {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+
+        .print-note h2 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .print-note p {
+            color: #856404;
+            line-height: 1.6;
+        }
+
+        .card-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            page-break-inside: avoid;
+        }
+
+        .card-label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .card-print {
+            width: 3.75in;
+            height: 2.25in;
+            min-height: 2.25in;
+            max-height: 2.25in;
+            background: #0a0a0a;
+            position: relative;
+            box-sizing: border-box;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        /* Trim line (actual card size) */
+        .card-print::before {
+            content: '';
+            position: absolute;
+            top: 0.125in;
+            left: 0.125in;
+            width: 3.5in;
+            height: 2in;
+            border: 1px dashed rgba(255, 0, 0, 0.3);
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* Safe zone */
+        .card-print::after {
+            content: '';
+            position: absolute;
+            top: 0.25in;
+            left: 0.25in;
+            width: 3.25in;
+            height: 1.75in;
+            border: 1px dashed rgba(0, 255, 0, 0.3);
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .card-content {
+            width: 100%;
+            height: 100%;
+            min-height: 100%;
+            max-height: 100%;
+            padding: 0.25in;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.08in;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .name {
+            font-size: 16pt;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            margin-bottom: 0.05in;
+            color: #C0C0C0;
+            text-shadow:
+                0 1px 1px rgba(255, 255, 255, 0.3),
+                0 -1px 1px rgba(0, 0, 0, 0.5);
+        }
+
+        .title {
+            font-size: 12pt;
+            font-weight: 400;
+            letter-spacing: 0.12em;
+            margin-bottom: 0.12in;
+            color: #C0C0C0;
+            text-shadow:
+                0 1px 1px rgba(255, 255, 255, 0.3),
+                0 -1px 1px rgba(0, 0, 0, 0.5);
+        }
+
+        .contact {
+            font-size: 10pt;
+            font-weight: 300;
+            letter-spacing: 0.12em;
+            line-height: 1.5;
+            color: #C0C0C0;
+            text-shadow:
+                0 1px 1px rgba(255, 255, 255, 0.3),
+                0 -1px 1px rgba(0, 0, 0, 0.5);
+        }
+
+        .qr-code {
+            position: absolute;
+            bottom: 0.25in;
+            right: 0.25in;
+            width: 0.7in;
+            height: 0.7in;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .print-note,
+            .card-label {
+                display: none;
+            }
+
+            .card-print::before,
+            .card-print::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-note">
+        <h2>Back Color Design - MOO Upload</h2>
+        <p><strong>Single-page file for MOO's "Back" section → "Upload design" button</strong></p>
+        <ol style="margin-left: 20px; margin-top: 10px;">
+            <li>Open this file in Chrome or Firefox</li>
+            <li>Print to PDF (Press Quality)</li>
+            <li>Ensure "Backgrounds" option is checked</li>
+            <li>Set margins to "None"</li>
+            <li>Upload to MOO: Back section → Upload design</li>
+        </ol>
+        <p style="margin-top: 15px;"><strong>Companion files:</strong> business-card-front-color.html, business-card-front-foil.html, business-card-back-foil.html</p>
+    </div>
+
+    <div class="card-wrapper">
+        <div class="card-label">Back Color Design (Rich Black Background)</div>
+        <div class="card-print">
+            <div class="card-content">
+                <div class="name">Eric Gustafson</div>
+                <div class="title">Software Developer</div>
+                <div class="contact">blackorchardlabs.com</div>
+                <div class="contact">blackorchardlabs@gmail.com</div>
+                <div class="contact">512-387-7221</div>
+                <img src="frame.png" class="qr-code" alt="QR Code to blackorchardlabs.com">
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

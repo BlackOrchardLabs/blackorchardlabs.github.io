@@ -1,0 +1,178 @@
+BLACK ORCHARD LABS BUSINESS CARDS
+PDF CREATION INSTRUCTIONS
+=========================================
+
+STEP-BY-STEP GUIDE TO CREATE PRINT-READY PDFs
+
+PREPARATION
+-----------
+1. Open business-card-final-print.html in Google Chrome or Firefox
+2. Ensure extracted_logo.png is in the same folder
+3. Have a PDF printer installed (built-in works fine)
+
+CREATING THE MAIN COLOR FILE (FRONT)
+------------------------------------
+1. Open business-card-final-print.html in browser
+2. Scroll to "FRONT - Final Design (Full Color + Bleed)"
+3. Press Ctrl+P (Windows) or Cmd+P (Mac) to open Print dialog
+
+Print Settings:
+- Destination: "Save as PDF"
+- Layout: Landscape
+- Paper size: Custom (3.75 × 2.25 inches)
+- Margins: None
+- Scale: 100%
+- Options: ☑ Background graphics
+- Pages: Select the front card page only
+
+4. Save as: business-card-front-color.pdf
+5. Verify: File should be 3.75" × 2.25" with black background visible
+
+CREATING THE MAIN COLOR FILE (BACK)
+-----------------------------------
+1. Scroll to "BACK - Final Design (Full Color + Bleed)"
+2. Press Ctrl+P (Windows) or Cmd+P (Mac)
+
+Print Settings:
+- Same as above
+- Pages: Select the back card page only
+
+3. Save as: business-card-back-color.pdf
+4. Verify: File should be 3.75" × 2.25" with black background visible
+
+CREATING THE FOIL LAYER FILE (FRONT)
+------------------------------------
+1. Scroll to "FOIL LAYER - Front (K=100 Black Only)"
+2. Press Ctrl+P (Windows) or Cmd+P (Mac)
+
+Print Settings:
+- Same as above
+- Pages: Select the foil layer front page only
+- Note: This should show black elements on white background
+
+3. Save as: business-card-front-foil.pdf
+4. Verify: Black text/logo on white background
+
+CREATING THE FOIL LAYER FILE (BACK)
+-----------------------------------
+1. Scroll to "FOIL LAYER - Back (K=100 Black Only)"
+2. Press Ctrl+P (Windows) or Cmd+P (Mac)
+
+Print Settings:
+- Same as above
+- Pages: Select the foil layer back page only
+
+3. Save as: business-card-back-foil.pdf
+4. Verify: Black text on white background
+
+ALTERNATIVE METHOD: PROFESSIONAL DESIGN SOFTWARE
+------------------------------------------------
+For best results, import the HTML design into Adobe Illustrator or InDesign:
+
+1. Take screenshots of each card at high resolution
+2. Import into Illustrator/InDesign
+3. Set up artboard: 3.75" × 2.25"
+4. Recreate with proper CMYK colors:
+   - Background: 40C/30M/30Y/100K
+   - Text/Logo: Use as template, recreate in vector
+5. Convert all fonts to outlines
+6. Export as PDF/X-1a:2001
+
+VERIFICATION CHECKLIST
+----------------------
+Before sending to printer, verify each PDF:
+
+Main Color Files (Front & Back):
+□ Dimensions: 3.75" × 2.25"
+□ Background is rich black (not pure black)
+□ Logo is visible and sharp
+□ All text is legible
+□ QR code is present on back
+□ No white borders or margins
+
+Foil Layer Files (Front & Back):
+□ Dimensions: 3.75" × 2.25" (same as color files)
+□ Background is white
+□ All foil elements are K=100 pure black
+□ Logo, text, and QR code all visible
+□ Perfect alignment with color layer
+
+COMMON ISSUES & FIXES
+---------------------
+Issue: White borders around card
+Fix: Ensure "Margins: None" and "Background graphics" checked
+
+Issue: Logo has black square background
+Fix: Verify using extracted_logo.png (not black_orchard_logo.png)
+
+Issue: Blurry text or logo
+Fix: Increase browser zoom to 200%, then print (will maintain quality)
+
+Issue: Colors look too light/washed out
+Fix: This is normal for screen display; CMYK prints darker
+
+Issue: Can't set custom paper size
+Fix: Select "More settings" or "Custom" in print dialog
+
+PROFESSIONAL ALTERNATIVE
+------------------------
+If browser-based PDF creation doesn't meet requirements:
+
+Option 1: Use Canva Pro
+- Import design
+- Set dimensions to 3.75" × 2.25"
+- Recreate using templates
+- Export as PDF (Print)
+
+Option 2: Hire Designer on Fiverr
+- Search: "print ready business cards"
+- Provide: HTML mockup, logo PNG, PRINT_SPECIFICATIONS.txt
+- Cost: $20-50
+- Turnaround: 1-2 days
+
+Option 3: Use Vistaprint's Designer Tool
+- Upload logo
+- Input text exactly as shown
+- Request custom black background (40/30/30/100)
+- Add silver foil option
+- They handle print-ready files
+
+SUBMITTING TO PRINTER
+---------------------
+Files to upload:
+1. business-card-front-color.pdf
+2. business-card-back-color.pdf
+3. business-card-front-foil.pdf
+4. business-card-back-foil.pdf
+5. PRINT_SPECIFICATIONS.txt
+
+Instructions for printer:
+"Please see attached print specifications document.
+Rich black background (40C/30M/30Y/100K) with
+soft-touch lamination and silver foil stamping.
+Foil layer files show placement in K=100 black."
+
+RECOMMENDED NEXT STEPS
+----------------------
+1. Create all 4 PDF files using instructions above
+2. Review each PDF carefully
+3. Check PRINT_SPECIFICATIONS.txt for accuracy
+4. Request digital proof from printer before production
+5. Consider ordering test batch (50-100 cards) first
+
+QUESTIONS OR ISSUES?
+--------------------
+If PDFs don't generate correctly:
+- Try different browser (Chrome usually works best)
+- Clear browser cache and reload page
+- Verify logo file is in same folder as HTML
+- Check print preview before saving PDF
+
+For professional help:
+- Contact: blackorchardlabs@gmail.com
+- Or hire designer on Fiverr/99designs
+
+=========================================
+Created: 2025-11-19
+Last Updated: 2025-11-19
+=========================================

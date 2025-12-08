@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Orchard Labs Business Card - COLOR LAYER (Print Ready)</title>
+    <style>
+        @page {
+            size: 3.75in 2.25in;
+            margin: 0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: #f0f0f0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .print-note {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+
+        .print-note h2 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .print-note p {
+            color: #856404;
+            line-height: 1.6;
+        }
+
+        .card-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            page-break-inside: avoid;
+            margin: 0;
+            padding: 0;
+        }
+
+        .card-label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Print-ready card with bleed */
+        .card-print {
+            width: 3.75in;
+            height: 2.25in;
+            min-height: 2.25in;
+            max-height: 2.25in;
+            background: #0a0a0a;
+            position: relative;
+            box-sizing: border-box;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            page-break-inside: avoid;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Trim line (actual card size) */
+        .card-print::before {
+            content: '';
+            position: absolute;
+            top: 0.125in;
+            left: 0.125in;
+            width: 3.5in;
+            height: 2in;
+            border: 1px dashed rgba(255, 0, 0, 0.3);
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* Safe zone */
+        .card-print::after {
+            content: '';
+            position: absolute;
+            top: 0.25in;
+            left: 0.25in;
+            width: 3.25in;
+            height: 1.75in;
+            border: 1px dashed rgba(0, 255, 0, 0.3);
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .card-content {
+            width: 100%;
+            height: 100%;
+            min-height: 100%;
+            max-height: 100%;
+            padding: 0.25in;
+            position: relative;
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        /* Silver foil simulation */
+        .silver {
+            color: #C0C0C0;
+            text-shadow:
+                0 1px 1px rgba(255, 255, 255, 0.3),
+                0 -1px 1px rgba(0, 0, 0, 0.5);
+        }
+
+        /* FRONT - Variation 4: Asymmetric Modern */
+        .front .card-content {
+            display: flex;
+            align-items: center;
+            gap: 0.3in;
+        }
+
+        .front .logo {
+            width: 1.5in;
+            height: 1.5in;
+            filter:
+                drop-shadow(0 2px 3px rgba(0, 0, 0, 0.6))
+                drop-shadow(0 0 2px rgba(255, 255, 255, 0.2));
+        }
+
+        .front .text-block {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.15in;
+        }
+
+        .front .company {
+            font-size: 14pt;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            line-height: 1.2;
+        }
+
+        .front .tagline {
+            font-size: 9pt;
+            font-weight: 300;
+            font-style: italic;
+            letter-spacing: 0.12em;
+            line-height: 1.4;
+        }
+
+        /* BACK - Variation 2: Left-Aligned */
+        .back .card-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.08in;
+            height: 100%;
+            max-height: 100%;
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        .back .name {
+            font-size: 16pt;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            margin-bottom: 0.05in;
+        }
+
+        .back .title {
+            font-size: 12pt;
+            font-weight: 400;
+            letter-spacing: 0.12em;
+            margin-bottom: 0.12in;
+        }
+
+        .back .contact {
+            font-size: 10pt;
+            font-weight: 300;
+            letter-spacing: 0.12em;
+            line-height: 1.5;
+        }
+
+        .back .qr-code {
+            position: absolute;
+            bottom: 0.25in;
+            right: 0.25in;
+            width: 0.75in;
+            height: 0.75in;
+            max-height: 0.75in;
+        }
+
+        .guidelines {
+            max-width: 800px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .guidelines h2 {
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #C0C0C0;
+            padding-bottom: 10px;
+        }
+
+        .guidelines h3 {
+            color: #555;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .guidelines p, .guidelines li {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .guidelines ul {
+            margin-left: 20px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .print-note,
+            .card-label,
+            .guidelines {
+                display: none;
+            }
+
+            .card-print::before,
+            .card-print::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-note">
+        <h2>COLOR LAYER - Print Instructions</h2>
+        <p><strong>This file contains the FULL COLOR layers (Front + Back) with rich black background.</strong></p>
+        <ol style="margin-left: 20px; margin-top: 10px;">
+            <li>Open this file in Chrome or Firefox</li>
+            <li>Print to PDF (Press Quality)</li>
+            <li>Ensure "Backgrounds" option is checked</li>
+            <li>Set margins to "None"</li>
+            <li>Result: 2-page PDF (Front Color, Back Color)</li>
+        </ol>
+        <p style="margin-top: 15px;"><strong>Red dashed line:</strong> Trim line (3.5" × 2")<br>
+        <strong>Green dashed line:</strong> Safe zone - keep critical elements inside</p>
+        <p style="margin-top: 15px;"><strong>Background specification:</strong> Rich Black (40C/30M/30Y/100K)</p>
+    </div>
+
+    <!-- FRONT - Final Design -->
+    <div class="card-wrapper">
+        <div class="card-label">FRONT - Full Color + Bleed</div>
+        <div class="card-print front">
+            <div class="card-content">
+                <img src="extracted_logo.png" alt="Black Orchard Labs Logo" class="logo">
+                <div class="text-block">
+                    <div class="company silver">BLACK<br>ORCHARD<br>LABS</div>
+                    <div class="tagline silver">Measuring the<br>Unmeasurable</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BACK - Final Design -->
+    <div class="card-wrapper">
+        <div class="card-label">BACK - Full Color + Bleed</div>
+        <div class="card-print back">
+            <div class="card-content">
+                <div class="name silver">Eric Gustafson</div>
+                <div class="title silver">Software Developer</div>
+                <div class="contact silver">blackorchardlabs.com</div>
+                <div class="contact silver">blackorchardlabs@gmail.com</div>
+                <div class="contact silver">512-387-7221</div>
+                <img src="qr_code.png" class="qr-code" alt="QR Code to blackorchardlabs.com">
+            </div>
+        </div>
+    </div>
+
+    <!-- Print Guidelines -->
+    <div class="guidelines">
+        <h2>COLOR LAYER Print Specifications</h2>
+
+        <h3>What This File Contains</h3>
+        <ul>
+            <li><strong>Page 1:</strong> Front color layer with logo and text</li>
+            <li><strong>Page 2:</strong> Back color layer with contact info and QR code</li>
+            <li><strong>Background:</strong> Rich black (40C/30M/30Y/100K)</li>
+            <li><strong>Elements:</strong> All design elements shown in silver (simulated)</li>
+        </ul>
+
+        <h3>Dimensions</h3>
+        <ul>
+            <li><strong>Finished Size:</strong> 3.5" × 2" (standard business card)</li>
+            <li><strong>With Bleed:</strong> 3.75" × 2.25" (0.125" bleed all sides)</li>
+            <li><strong>Safe Zone:</strong> 3.25" × 1.75" (keep text/logo inside)</li>
+        </ul>
+
+        <h3>Material Specifications</h3>
+        <ul>
+            <li><strong>Stock:</strong> 16pt black uncoated cardstock</li>
+            <li><strong>Lamination:</strong> 1.5mil soft-touch/velvet matte coating (both sides)</li>
+            <li><strong>Total Thickness:</strong> ~19pt</li>
+            <li><strong>Foil:</strong> Hot stamped silver foil (see separate FOIL file)</li>
+        </ul>
+
+        <h3>Color Requirements</h3>
+        <ul>
+            <li><strong>Background:</strong> Rich Black (40C/30M/30Y/100K)</li>
+            <li><strong>Foil Elements:</strong> Provided in separate business-card-FOIL.html file</li>
+            <li><strong>Color Space:</strong> CMYK</li>
+            <li><strong>Resolution:</strong> 300 DPI minimum</li>
+        </ul>
+
+        <h3>Files to Submit to Printer</h3>
+        <ul>
+            <li><strong>This file (COLOR):</strong> business-card-front-color.pdf + business-card-back-color.pdf</li>
+            <li><strong>Companion file (FOIL):</strong> business-card-front-foil.pdf + business-card-back-foil.pdf</li>
+            <li><strong>Spec sheet:</strong> PRINT_SPECIFICATIONS.txt</li>
+        </ul>
+
+        <h3>Pre-Flight Checklist</h3>
+        <ul>
+            <li>✓ All fonts converted to outlines</li>
+            <li>✓ Images embedded (not linked)</li>
+            <li>✓ Color mode set to CMYK</li>
+            <li>✓ Resolution 300 DPI or higher</li>
+            <li>✓ Bleed extended 0.125" on all sides</li>
+            <li>✓ Critical elements inside safe zone</li>
+            <li>✓ Background is rich black (40C/30M/30Y/100K)</li>
+            <li>✓ PDF/X-1a:2001 compliant (recommended)</li>
+        </ul>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Orchard Labs Business Card - BACK (Design + Foil)</title>
+    <style>
+        @page {
+            size: 3.75in 2.25in;
+            margin: 0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: #f0f0f0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .print-note {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+
+        .print-note h2 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .print-note p {
+            color: #856404;
+            line-height: 1.6;
+        }
+
+        .card-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            page-break-inside: avoid;
+            margin: 0;
+            padding: 0;
+        }
+
+        .card-label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Print-ready card with bleed */
+        .card-print {
+            width: 3.75in;
+            height: 2.25in;
+            min-height: 2.25in;
+            max-height: 2.25in;
+            background: #0a0a0a;
+            position: relative;
+            box-sizing: border-box;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            page-break-inside: avoid;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Trim line (actual card size) */
+        .card-print::before {
+            content: '';
+            position: absolute;
+            top: 0.125in;
+            left: 0.125in;
+            width: 3.5in;
+            height: 2in;
+            border: 1px dashed rgba(255, 0, 0, 0.3);
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        /* Safe zone */
+        .card-print::after {
+            content: '';
+            position: absolute;
+            top: 0.25in;
+            left: 0.25in;
+            width: 3.25in;
+            height: 1.75in;
+            border: 1px dashed rgba(0, 255, 0, 0.3);
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .card-content {
+            width: 100%;
+            height: 100%;
+            min-height: 100%;
+            max-height: 100%;
+            padding: 0.25in;
+            position: relative;
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        /* Silver foil simulation */
+        .silver {
+            color: #C0C0C0;
+            text-shadow:
+                0 1px 1px rgba(255, 255, 255, 0.3),
+                0 -1px 1px rgba(0, 0, 0, 0.5);
+        }
+
+        /* BACK - Variation 2: Left-Aligned */
+        .back .card-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.08in;
+            height: 100%;
+            max-height: 100%;
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        .back .name {
+            font-size: 16pt;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            margin-bottom: 0.05in;
+        }
+
+        .back .title {
+            font-size: 12pt;
+            font-weight: 400;
+            letter-spacing: 0.12em;
+            margin-bottom: 0.12in;
+        }
+
+        .back .contact {
+            font-size: 10pt;
+            font-weight: 300;
+            letter-spacing: 0.12em;
+            line-height: 1.5;
+        }
+
+        .back .qr-code {
+            position: absolute;
+            bottom: 0.25in;
+            right: 0.25in;
+            width: 0.75in;
+            height: 0.75in;
+            max-height: 0.75in;
+        }
+
+        /* Foil layer version */
+        .foil-layer {
+            background: white !important;
+        }
+
+        .foil-layer .silver {
+            color: #000000 !important;
+            text-shadow: none !important;
+        }
+
+        .foil-layer .qr-code {
+            /* QR code image - no special styling needed for foil layer */
+        }
+
+        .guidelines {
+            max-width: 800px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .guidelines h2 {
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #C0C0C0;
+            padding-bottom: 10px;
+        }
+
+        .guidelines h3 {
+            color: #555;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .guidelines p, .guidelines li {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .guidelines ul {
+            margin-left: 20px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .print-note,
+            .card-label,
+            .guidelines {
+                display: none;
+            }
+
+            .card-print::before,
+            .card-print::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="print-note">
+        <h2>BACK - Design + Foil Element (MOO Upload Format)</h2>
+        <p><strong>This file contains both layers for the BACK of the card:</strong></p>
+        <ul style="margin-left: 20px; margin-top: 10px;">
+            <li><strong>Page 1:</strong> Back color design (rich black background)</li>
+            <li><strong>Page 2:</strong> Back foil element (K=100 black on white)</li>
+        </ul>
+        <p style="margin-top: 15px;"><strong>To create PDF for MOO:</strong></p>
+        <ol style="margin-left: 20px; margin-top: 5px;">
+            <li>Open this file in Chrome or Firefox</li>
+            <li>Print to PDF (Press Quality)</li>
+            <li>Ensure "Backgrounds" option is checked</li>
+            <li>Set margins to "None"</li>
+            <li>Save as: business-card-back.pdf</li>
+            <li>Upload to MOO's "Back" section</li>
+        </ol>
+        <p style="margin-top: 15px;"><strong>Red line:</strong> Trim (3.5" × 2") | <strong>Green line:</strong> Safe zone</p>
+    </div>
+
+    <!-- BACK - Color Design -->
+    <div class="card-wrapper">
+        <div class="card-label">Page 1: Back Color Design (Rich Black Background)</div>
+        <div class="card-print back">
+            <div class="card-content">
+                <div class="name silver">Eric Gustafson</div>
+                <div class="title silver">Software Developer</div>
+                <div class="contact silver">blackorchardlabs.com</div>
+                <div class="contact silver">blackorchardlabs@gmail.com</div>
+                <div class="contact silver">512-387-7221</div>
+                <img src="qr_code.png" class="qr-code" alt="QR Code to blackorchardlabs.com">
+            </div>
+        </div>
+    </div>
+
+    <!-- BACK - Foil Layer -->
+    <div class="card-wrapper">
+        <div class="card-label">Page 2: Back Foil Element (K=100 Black on White)</div>
+        <div class="card-print back foil-layer">
+            <div class="card-content">
+                <div class="name silver">Eric Gustafson</div>
+                <div class="title silver">Software Developer</div>
+                <div class="contact silver">blackorchardlabs.com</div>
+                <div class="contact silver">blackorchardlabs@gmail.com</div>
+                <div class="contact silver">512-387-7221</div>
+                <img src="qr_code.png" class="qr-code" alt="QR Code to blackorchardlabs.com">
+            </div>
+        </div>
+    </div>
+
+    <!-- Guidelines -->
+    <div class="guidelines">
+        <h2>BACK - MOO Upload Specifications</h2>
+
+        <h3>What This File Contains</h3>
+        <ul>
+            <li><strong>Page 1:</strong> Back color design with rich black background (40C/30M/30Y/100K)</li>
+            <li><strong>Page 2:</strong> Back foil placement layer (K=100 black indicates silver foil areas)</li>
+            <li><strong>Format:</strong> Ready for MOO's "Design + Foil Element" upload interface</li>
+        </ul>
+
+        <h3>MOO Upload Instructions</h3>
+        <ol>
+            <li>First, upload business-card-FRONT.html to MOO's FRONT section</li>
+            <li>Then, upload this PDF to the <strong>BACK</strong> section</li>
+            <li>MOO will recognize Page 1 as design, Page 2 as foil element</li>
+            <li>Review combined preview (front + back with foil)</li>
+            <li>Request digital proof before production</li>
+        </ol>
+
+        <h3>Specifications</h3>
+        <ul>
+            <li><strong>Finished Size:</strong> 3.5" × 2" (standard business card)</li>
+            <li><strong>With Bleed:</strong> 3.75" × 2.25" (0.125" bleed all sides)</li>
+            <li><strong>Background:</strong> Rich Black (40C/30M/30Y/100K)</li>
+            <li><strong>Foil:</strong> Silver hot stamped on all text and QR code</li>
+            <li><strong>Stock:</strong> 16pt black uncoated with soft-touch lamination</li>
+        </ul>
+
+        <h3>Contact Information Verification</h3>
+        <ul>
+            <li><strong>Name:</strong> Eric Gustafson</li>
+            <li><strong>Title:</strong> Software Developer</li>
+            <li><strong>Website:</strong> blackorchardlabs.com</li>
+            <li><strong>Email:</strong> blackorchardlabs@gmail.com</li>
+            <li><strong>Phone:</strong> 512-387-7221</li>
+            <li><strong>QR Code:</strong> Links to https://blackorchardlabs.com</li>
+        </ul>
+
+        <h3>Companion File</h3>
+        <ul>
+            <li><strong>business-card-FRONT.html</strong> - Contains front color design + front foil element</li>
+            <li>Upload FRONT file first, then this BACK file</li>
+        </ul>
+
+        <h3>Pre-Flight Checklist</h3>
+        <ul>
+            <li>✓ PDF contains exactly 2 pages</li>
+            <li>✓ Page 1: Color design with rich black background</li>
+            <li>✓ Page 2: Foil element with K=100 black on white</li>
+            <li>✓ Both pages same dimensions (3.75" × 2.25")</li>
+            <li>✓ QR code is visible and properly positioned</li>
+            <li>✓ All contact information is correct</li>
+            <li>✓ Backgrounds option enabled in print settings</li>
+            <li>✓ Margins set to "None"</li>
+            <li>✓ All elements inside safe zone (green line)</li>
+        </ul>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Orchard Labs - Business Card Mockups</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1e 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            color: #C0C0C0;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .card-set {
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        .variation-title {
+            color: #00FFFF;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            width: 350px;
+            height: 200px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            border-radius: 8px;
+            box-shadow:
+                0 8px 16px rgba(0, 0, 0, 0.6),
+                inset 0 1px 0 rgba(192, 192, 192, 0.1);
+            position: relative;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        /* Soft-touch texture simulation */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .card-label {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 255, 255, 0.2);
+            color: #00FFFF;
+            padding: 4px 8px;
+            font-size: 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Silver foil effect */
+        .silver {
+            color: #C0C0C0;
+            text-shadow:
+                0 1px 1px rgba(255, 255, 255, 0.3),
+                0 -1px 1px rgba(0, 0, 0, 0.5);
+            letter-spacing: 0.12em;
+        }
+
+        .logo {
+            filter:
+                drop-shadow(0 2px 3px rgba(0, 0, 0, 0.6))
+                drop-shadow(0 0 2px rgba(255, 255, 255, 0.2));
+        }
+
+        /* QR Code */
+        .qr-code {
+            width: 60px;
+            height: 60px;
+            background: #C0C0C0;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8px;
+            color: #000;
+            font-weight: bold;
+        }
+
+        /* Variation 1: Classic Centered */
+        .var1-front {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .var1-front .logo {
+            width: 140px;
+            height: 140px;
+            margin-bottom: 10px;
+        }
+
+        .var1-front .company {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .var1-front .tagline {
+            font-size: 10px;
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        .var1-back {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 6px;
+        }
+
+        .var1-back .name {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .var1-back .title {
+            font-size: 12px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .var1-back .contact {
+            font-size: 10px;
+            font-weight: 300;
+        }
+
+        .var1-back .qr-code {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+        }
+
+        /* Variation 2: Logo Top-Left */
+        .var2-front {
+            position: relative;
+        }
+
+        .var2-front .logo {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .var2-front .company {
+            position: absolute;
+            top: 110px;
+            left: 0;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .var2-front .tagline {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10px;
+            font-weight: 300;
+            font-style: italic;
+        }
+
+        .var2-back {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .var2-back .name {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .var2-back .title {
+            font-size: 12px;
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+
+        .var2-back .contact {
+            font-size: 10px;
+            font-weight: 300;
+        }
+
+        .var2-back .qr-code {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+        }
+
+        /* Variation 3: Minimalist Logo Only */
+        .var3-front {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .var3-front .logo {
+            width: 160px;
+            height: 160px;
+        }
+
+        .var3-back {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .var3-back .header {
+            margin-bottom: 12px;
+        }
+
+        .var3-back .company {
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .var3-back .tagline {
+            font-size: 9px;
+            font-weight: 300;
+            font-style: italic;
+            margin-top: 3px;
+        }
+
+        .var3-back .name {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .var3-back .title {
+            font-size: 12px;
+            font-weight: 400;
+            margin-bottom: 6px;
+        }
+
+        .var3-back .contact {
+            font-size: 10px;
+            font-weight: 300;
+        }
+
+        .var3-back .qr-code {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+        }
+
+        /* Variation 4: Asymmetric Modern */
+        .var4-front {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .var4-front .logo {
+            width: 100px;
+            height: 100px;
+        }
+
+        .var4-front .text-block {
+            flex: 1;
+        }
+
+        .var4-front .company {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .var4-front .tagline {
+            font-size: 9px;
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .var4-back {
+            position: relative;
+        }
+
+        .var4-back .contact-block {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        .var4-back .name {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .var4-back .title {
+            font-size: 12px;
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+
+        .var4-back .contact {
+            font-size: 10px;
+            font-weight: 300;
+        }
+
+        .var4-back .qr-code {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+        }
+
+        /* Variation 5: Logo + Company Name Only */
+        .var5-front {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .var5-front .logo {
+            width: 140px;
+            height: 140px;
+            margin-bottom: 12px;
+        }
+
+        .var5-front .company {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .var5-back {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 6px;
+        }
+
+        .var5-back .tagline {
+            font-size: 10px;
+            font-weight: 300;
+            font-style: italic;
+            margin-bottom: 12px;
+        }
+
+        .var5-back .name {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .var5-back .title {
+            font-size: 12px;
+            font-weight: 400;
+            margin-bottom: 6px;
+        }
+
+        .var5-back .contact {
+            font-size: 10px;
+            font-weight: 300;
+        }
+
+        .var5-back .qr-code {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+        }
+
+        /* Variation 6: Bold Typography Focus */
+        .var6-front {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 15px;
+        }
+
+        .var6-front .company {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .var6-front .logo {
+            width: 60px;
+            height: 60px;
+        }
+
+        .var6-back {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 6px;
+        }
+
+        .var6-back .name {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .var6-back .title {
+            font-size: 12px;
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+
+        .var6-back .contact {
+            font-size: 10px;
+            font-weight: 300;
+        }
+
+        .var6-back .qr-code {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                width: 100%;
+                max-width: 350px;
+            }
+
+            .card-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Black Orchard Labs Business Cards</h1>
+
+    <!-- Variation 1: Classic Centered -->
+    <div class="card-set">
+        <h2 class="variation-title">Variation 1: Classic Centered</h2>
+        <div class="card-container">
+            <div class="card var1-front">
+                <div class="card-label">Front</div>
+                <img src="extracted_logo.png" alt="Black Orchard Labs Logo" class="logo">
+                <div class="company silver">BLACK ORCHARD LABS</div>
+                <div class="tagline silver">Measuring the Unmeasurable</div>
+            </div>
+            <div class="card var1-back">
+                <div class="card-label">Back</div>
+                <div class="name silver">Eric Gustafson</div>
+                <div class="title silver">Software Developer</div>
+                <div class="contact silver">blackorchardlabs.com</div>
+                <div class="contact silver">blackorchardlabs@gmail.com</div>
+                <div class="contact silver">512-387-7221</div>
+                <div class="qr-code">QR</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Variation 2: Logo Top-Left -->
+    <div class="card-set">
+        <h2 class="variation-title">Variation 2: Logo Top-Left</h2>
+        <div class="card-container">
+            <div class="card var2-front">
+                <div class="card-label">Front</div>
+                <img src="extracted_logo.png" alt="Black Orchard Labs Logo" class="logo">
+                <div class="company silver">BLACK ORCHARD LABS</div>
+                <div class="tagline silver">Measuring the Unmeasurable</div>
+            </div>
+            <div class="card var2-back">
+                <div class="card-label">Back</div>
+                <div class="name silver">Eric Gustafson</div>
+                <div class="title silver">Software Developer</div>
+                <div class="contact silver">blackorchardlabs.com</div>
+                <div class="contact silver">blackorchardlabs@gmail.com</div>
+                <div class="contact silver">512-387-7221</div>
+                <div class="qr-code">QR</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Variation 3: Minimalist Logo Only -->
+    <div class="card-set">
+        <h2 class="variation-title">Variation 3: Minimalist Logo Only</h2>
+        <div class="card-container">
+            <div class="card var3-front">
+                <div class="card-label">Front</div>
+                <img src="extracted_logo.png" alt="Black Orchard Labs Logo" class="logo">
+            </div>
+            <div class="card var3-back">
+                <div class="card-label">Back</div>
+                <div class="header">
+                    <div class="company silver">BLACK ORCHARD LABS</div>
+                    <div class="tagline silver">Measuring the Unmeasurable</div>
+                </div>
+                <div class="name silver">Eric Gustafson</div>
+                <div class="title silver">Software Developer</div>
+                <div class="contact silver">blackorchardlabs.com</div>
+                <div class="contact silver">blackorchardlabs@gmail.com</div>
+                <div class="contact silver">512-387-7221</div>
+                <div class="qr-code">QR</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Variation 4: Asymmetric Modern -->
+    <div class="card-set">
+        <h2 class="variation-title">Variation 4: Asymmetric Modern</h2>
+        <div class="card-container">
+            <div class="card var4-front">
+                <div class="card-label">Front</div>
+                <img src="extracted_logo.png" alt="Black Orchard Labs Logo" class="logo">
+                <div class="text-block">
+                    <div class="company silver">BLACK ORCHARD LABS</div>
+                    <div class="tagline silver">Measuring the Unmeasurable</div>
+                </div>
+            </div>
+            <div class="card var4-back">
+                <div class="card-label">Back</div>
+                <div class="contact-block">
+                    <div class="name silver">Eric Gustafson</div>
+                    <div class="title silver">Software Developer</div>
+                    <div class="contact silver">blackorchardlabs.com</div>
+                    <div class="contact silver">blackorchardlabs@gmail.com</div>
+                    <div class="contact silver">512-387-7221</div>
+                </div>
+                <div class="qr-code">QR</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Variation 5: Logo + Company Name Only -->
+    <div class="card-set">
+        <h2 class="variation-title">Variation 5: Logo + Company Name Only</h2>
+        <div class="card-container">
+            <div class="card var5-front">
+                <div class="card-label">Front</div>
+                <img src="extracted_logo.png" alt="Black Orchard Labs Logo" class="logo">
+                <div class="company silver">BLACK ORCHARD LABS</div>
+            </div>
+            <div class="card var5-back">
+                <div class="card-label">Back</div>
+                <div class="tagline silver">Measuring the Unmeasurable</div>
+                <div class="name silver">Eric Gustafson</div>
+                <div class="title silver">Software Developer</div>
+                <div class="contact silver">blackorchardlabs.com</div>
+                <div class="contact silver">blackorchardlabs@gmail.com</div>
+                <div class="contact silver">512-387-7221</div>
+                <div class="qr-code">QR</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Variation 6: Bold Typography Focus -->
+    <div class="card-set">
+        <h2 class="variation-title">Variation 6: Bold Typography Focus</h2>
+        <div class="card-container">
+            <div class="card var6-front">
+                <div class="card-label">Front</div>
+                <div class="company silver">BLACK<br>ORCHARD<br>LABS</div>
+                <img src="extracted_logo.png" alt="Black Orchard Labs Logo" class="logo">
+            </div>
+            <div class="card var6-back">
+                <div class="card-label">Back</div>
+                <div class="name silver">Eric Gustafson</div>
+                <div class="title silver">Software Developer</div>
+                <div class="contact silver">blackorchardlabs.com</div>
+                <div class="contact silver">blackorchardlabs@gmail.com</div>
+                <div class="contact silver">512-387-7221</div>
+                <div class="qr-code">QR</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
